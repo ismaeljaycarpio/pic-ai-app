@@ -1,7 +1,12 @@
+import { homedir } from "os";
 import React from "react";
 
-const page = () => {
-  return <div>page</div>;
-};
+async function StudioPage() {
+  return (
+    <>
+      <h1>HERO PAGE</h1>
+    </>
+  );
+}
 
-export default page;
+export default StudioPage;

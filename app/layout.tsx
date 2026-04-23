@@ -8,6 +8,7 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import "./globals.css";
+import { clerkModalAppearance } from "@/lib/clerk-modal-appearance";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,19 +32,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ClerkProvider>
-          <header>
-            <Show when="signed-out">
-              <SignInButton />
-              <SignUpButton />
-            </Show>
-            <Show when="signed-in">
-              <UserButton />
-            </Show>
-          </header>
+      <body>
+        <ClerkProvider appearance={clerkModalAppearance}>
           {children}
         </ClerkProvider>
       </body>
